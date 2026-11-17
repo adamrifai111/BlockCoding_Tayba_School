@@ -9,41 +9,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
-      /* ================================================================= */
-  /* RESPONSIVE LANDSCAPE & TABLET ADAPTATION RULES                     */
+        /* ================================================================= */
+  /* RESPONSIVE LANDSCAPE / TABLET ADAPTATION FIXES                    */
   /* ================================================================= */
+  @media (max-height: 550px) and (orientation: landscape) {
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-  /* Default mobile portrait restrictions */
-  @media (max-width: 767px) and (orientation: portrait) {
+    /* 1. Fix Top Zone to take remaining screen space cleanly */
     #top-zone {
-      height: 55% !important;
-    }
-  }
-
-  /* When a phone is flipped to landscape or viewed on a tablet */
-  @media (min-width: 768px), (max-height: 550px) and (orientation: landscape) {
-    html, body {
-      overflow-x: hidden;
-      overflow-y: hidden;
-    }
-    
-    #top-zone {
-      height: 60% !important;
-      min-height: 320px;
+      height: calc(100vh - 56px) !important;
+      min-height: 0 !important;
     }
 
+    /* 2. Shrink palette bar slightly for landscape mobile/tablet feel */
     #palette-bar {
-      height: 72px !important;
+      height: 56px !important;
+      flex-shrink: 0;
     }
 
-    /* Expand sidebar widths slightly for tablet/landscape phone feel */
+    /* 3. Allow stage wrapper to expand horizontally like a tablet */
+    #stage-wrapper {
+      height: 100% !important;
+      width: 100% !important;
+      aspect-ratio: 4 / 3;
+      max-height: 100%;
+    }
+
+    /* 4. Ensure sidebars scale nicely */
     #left-sidebar {
-      width: 175px !important;
+      width: 160px !important;
     }
     #right-sidebar {
-      width: 145px !important;
+      width: 130px !important;
     }
   }
+
 
   /* Ultra-compact landscape safety for small phones */
   @media (max-height: 420px) and (orientation: landscape) {
