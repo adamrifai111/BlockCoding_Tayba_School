@@ -2,13 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Block- based Coding - Tayba School - App</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
+      /* ================================================================= */
+  /* RESPONSIVE LANDSCAPE & TABLET ADAPTATION RULES                     */
+  /* ================================================================= */
+
+  /* Default mobile portrait restrictions */
+  @media (max-width: 767px) and (orientation: portrait) {
+    #top-zone {
+      height: 55% !important;
+    }
+  }
+
+  /* When a phone is flipped to landscape or viewed on a tablet */
+  @media (min-width: 768px), (max-height: 550px) and (orientation: landscape) {
+    html, body {
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+    
+    #top-zone {
+      height: 60% !important;
+      min-height: 320px;
+    }
+
+    #palette-bar {
+      height: 72px !important;
+    }
+
+    /* Expand sidebar widths slightly for tablet/landscape phone feel */
+    #left-sidebar {
+      width: 175px !important;
+    }
+    #right-sidebar {
+      width: 145px !important;
+    }
+  }
+
+  /* Ultra-compact landscape safety for small phones */
+  @media (max-height: 420px) and (orientation: landscape) {
+    header {
+      height: 38px !important;
+      margin-bottom: 2px !important;
+    }
+    #top-zone {
+      height: 63% !important;
+    }
+    .scratchjr-logo-text {
+      font-size: 1.1rem !important;
+      -webkit-text-stroke: 2.5px #f58220;
+    }
+  }
+    
     :root {
       --bg-cream: #f5f2e6;
       --stage-bg: #f1f0f5;
